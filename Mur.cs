@@ -18,8 +18,8 @@ namespace CasseBriques {
 			lvl--;
 	
 			// def lvl       { retour, speed, tnt, ArrowH} // base = 100 - reste
-			levels[0] = new int[]{0, 0, 0, 100};
-			levels[1] = new int[]{0, 0, 0, 100};
+			levels[0] = new int[]{25, 25, 10, 5};
+			levels[1] = new int[]{37, 30, 17, 3};
 
 			Random randStat = new Random();
 			//mur random
@@ -35,9 +35,9 @@ namespace CasseBriques {
 				MessageBox.Show("stat random = a", allStat.ToString());
 				levels[lvl] = new int[] {statRetour, statSpeed, statTNT, statAH};
             }
-			if(lvl==99)
+			if(lvl==5)
             {
-				MessageBox.Show("bravo vous avez fini le jeu");
+				MessageBox.Show("Bravo vous avez fini le mode niveau.");
             }
 
 			// Affectaion aléatoire de briques au mur

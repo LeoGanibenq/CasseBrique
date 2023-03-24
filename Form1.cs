@@ -11,7 +11,7 @@ namespace CasseBriques {
 		private void nouveauToolStripMenuItem_Click(object sender, EventArgs e) {
 			int level = 1;
 			EspaceJeu.initialiseNiveau(level);
-			this.Text = " - Lvl:"+level;
+			this.Text = "CassesBriques - Lvl:"+level;
 		}
 
 		private void quitterToolStripMenuItem_Click(object sender, EventArgs e) {

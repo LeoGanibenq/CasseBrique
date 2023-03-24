@@ -8,3 +8,13 @@ C:\Users\GANIBENQ\source\repos\CassesBriques\obj\Debug\CassesBriques.exe
 C:\Users\GANIBENQ\source\repos\CassesBriques\obj\Debug\CassesBriques.pdb
 C:\Users\GANIBENQ\source\repos\CassesBriques\obj\Debug\CasseBriques.CB.resources
 C:\Users\GANIBENQ\source\repos\CassesBriques\obj\Debug\CassesBriques.csproj.AssemblyReference.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\CassesBriques.exe.config
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\CassesBriques.exe
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\CassesBriques.pdb
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.csproj.AssemblyReference.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CasseBriques.CB.resources
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.Properties.Resources.resources
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.csproj.GenerateResource.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.csproj.CoreCompileInputs.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.exe
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Debug\CassesBriques.pdb
