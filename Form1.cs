@@ -10,7 +10,7 @@ namespace CasseBriques {
 
 		private void nouveauToolStripMenuItem_Click(object sender, EventArgs e) {
 			int level = 1;
-			EspaceJeu.initialiseNiveau(level);
+			EspaceJeu.initialiseNiveau(level, "lvl");
 			this.Text = "CassesBriques - Lvl:"+level;
 		}
 
@@ -18,9 +18,16 @@ namespace CasseBriques {
 			Application.Exit();
 		}
 
-		public void setTitle(string title)
+        private void modeInfinityToolStripMenuItem_Click(object sender, EventArgs e)
         {
-			this.Text = "Casse briques - Lvl:" + title;
+            int level = 1;
+            EspaceJeu.initialiseNiveau(level, "inf");
+            this.Text = "CassesBriques - Infinity: " + level;
+        }
+
+        public void setTitle(string title)
+        {
+			this.Text = title;
         }
 
         private void CB_Load(object sender, EventArgs e)
@@ -37,7 +44,5 @@ namespace CasseBriques {
         {
             EspaceJeu.EspaceJeu_MouseClick(sender, e);
         }
-
-		
-	}
+    }
 }

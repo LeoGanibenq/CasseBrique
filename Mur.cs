@@ -14,16 +14,19 @@ namespace CasseBriques {
 		//						 [nbLvl, nbTypeBrique]
 		public int[][] levels = new int[100][];
 		
-		public void construit(int lvl) {
+		public void construit(int lvl, String modeType) {
 			lvl--;
 	
 			// def lvl       { retour, speed, tnt, ArrowH} // base = 100 - reste
 			levels[0] = new int[]{25, 25, 10, 5};
-			levels[1] = new int[]{37, 30, 17, 3};
+			levels[1] = new int[]{27, 30, 17, 3};
+			levels[2] = new int[]{30, 35, 20, 2};
+			levels[3] = new int[]{27, 38, 23, 2};
+			levels[4] = new int[]{25, 40, 20, 1};
 
 			Random randStat = new Random();
 			//mur random
-			if(lvl >= 2)
+			if(modeType=="inf")
             {
 				int statRetour = randStat.Next(0, 30);				
 				int statSpeed = randStat.Next(0, 100 - statRetour);
@@ -32,12 +35,7 @@ namespace CasseBriques {
 
 				int allStat = statTNT + statSpeed + statRetour + statAH;
 
-				MessageBox.Show("stat random = a", allStat.ToString());
 				levels[lvl] = new int[] {statRetour, statSpeed, statTNT, statAH};
-            }
-			if(lvl==5)
-            {
-				MessageBox.Show("Bravo vous avez fini le mode niveau.");
             }
 
 			// Affectaion aléatoire de briques au mur

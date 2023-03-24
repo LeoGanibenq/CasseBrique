@@ -29,6 +29,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EspaceJeu = new CasseBriques.Jeu();
+            this.modeInfinityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,6 +47,7 @@
             // 
             this.jeuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nouveauToolStripMenuItem,
+            this.modeInfinityToolStripMenuItem,
             this.toolStripMenuItem2,
             this.quitterToolStripMenuItem});
             this.jeuToolStripMenuItem.Name = "jeuToolStripMenuItem";
@@ -55,20 +57,20 @@
             // nouveauToolStripMenuItem
             // 
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.nouveauToolStripMenuItem.Text = "&Nouveau";
+            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.nouveauToolStripMenuItem.Text = "Mode Niveau";
             this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.nouveauToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(149, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem2.Text = "---------------";
             // 
             // quitterToolStripMenuItem
             // 
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.quitterToolStripMenuItem.Text = "&Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
@@ -80,6 +82,14 @@
             this.EspaceJeu.TabIndex = 1;
             this.EspaceJeu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseClick);
             this.EspaceJeu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseMove);
+            
+            // 
+            // modeInfinityToolStripMenuItem
+            // 
+            this.modeInfinityToolStripMenuItem.Name = "modeInfinityToolStripMenuItem";
+            this.modeInfinityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.modeInfinityToolStripMenuItem.Text = "Mode Infinity";
+            this.modeInfinityToolStripMenuItem.Click += new System.EventHandler(this.modeInfinityToolStripMenuItem_Click);
             // 
             // CB
             // 
@@ -108,7 +118,7 @@
 		private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
 		private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
 		private Jeu EspaceJeu;
-
-	}
+        private System.Windows.Forms.ToolStripMenuItem modeInfinityToolStripMenuItem;
+    }
 }
 
