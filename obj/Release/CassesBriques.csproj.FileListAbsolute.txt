@@ -1,0 +1,12 @@
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Release\CassesBriques.exe.config
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Release\CassesBriques.exe
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Release\CassesBriques.pdb
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CasseBriques.CB.resources
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CassesBriques.Properties.Resources.resources
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CassesBriques.csproj.GenerateResource.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CassesBriques.csproj.CoreCompileInputs.cache
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CassesBriques.exe
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CassesBriques.pdb
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Release\fr\CassesBriques.resources.dll
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\CasseBriques.CB.fr.resources
+C:\Users\GANIBENQ\source\repos\CasseBrique\obj\Release\fr\CassesBriques.resources.dll

@@ -6,6 +6,7 @@ namespace CasseBriques {
 
 		public CB() {
 			InitializeComponent();
+            this.Icon = new System.Drawing.Icon("C:/Users/GANIBENQ/source/repos/CasseBrique/icon.ico");
 		}
 
 		private void nouveauToolStripMenuItem_Click(object sender, EventArgs e) {

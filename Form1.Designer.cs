@@ -23,85 +23,73 @@
 		/// le contenu de cette méthode avec l'éditeur de code.
 		/// </summary>
 		private void InitializeComponent() {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CB));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.jeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modeInfinityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.quitterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EspaceJeu = new CasseBriques.Jeu();
-            this.modeInfinityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.jeuToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(361, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // jeuToolStripMenuItem
             // 
+            resources.ApplyResources(this.jeuToolStripMenuItem, "jeuToolStripMenuItem");
             this.jeuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nouveauToolStripMenuItem,
             this.modeInfinityToolStripMenuItem,
             this.toolStripMenuItem2,
             this.quitterToolStripMenuItem});
             this.jeuToolStripMenuItem.Name = "jeuToolStripMenuItem";
-            this.jeuToolStripMenuItem.Size = new System.Drawing.Size(36, 20);
-            this.jeuToolStripMenuItem.Text = "&Jeu";
             // 
             // nouveauToolStripMenuItem
             // 
+            resources.ApplyResources(this.nouveauToolStripMenuItem, "nouveauToolStripMenuItem");
             this.nouveauToolStripMenuItem.Name = "nouveauToolStripMenuItem";
-            this.nouveauToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.nouveauToolStripMenuItem.Text = "Mode Niveau";
             this.nouveauToolStripMenuItem.Click += new System.EventHandler(this.nouveauToolStripMenuItem_Click);
+            // 
+            // modeInfinityToolStripMenuItem
+            // 
+            resources.ApplyResources(this.modeInfinityToolStripMenuItem, "modeInfinityToolStripMenuItem");
+            this.modeInfinityToolStripMenuItem.Name = "modeInfinityToolStripMenuItem";
+            this.modeInfinityToolStripMenuItem.Click += new System.EventHandler(this.modeInfinityToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem2.Text = "---------------";
             // 
             // quitterToolStripMenuItem
             // 
+            resources.ApplyResources(this.quitterToolStripMenuItem, "quitterToolStripMenuItem");
             this.quitterToolStripMenuItem.Name = "quitterToolStripMenuItem";
-            this.quitterToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.quitterToolStripMenuItem.Text = "&Quitter";
             this.quitterToolStripMenuItem.Click += new System.EventHandler(this.quitterToolStripMenuItem_Click);
             // 
             // EspaceJeu
             // 
-            this.EspaceJeu.Location = new System.Drawing.Point(1, 26);
+            resources.ApplyResources(this.EspaceJeu, "EspaceJeu");
             this.EspaceJeu.Name = "EspaceJeu";
-            this.EspaceJeu.Size = new System.Drawing.Size(360, 340);
-            this.EspaceJeu.TabIndex = 1;
             this.EspaceJeu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseClick);
             this.EspaceJeu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseMove);
-            
-            // 
-            // modeInfinityToolStripMenuItem
-            // 
-            this.modeInfinityToolStripMenuItem.Name = "modeInfinityToolStripMenuItem";
-            this.modeInfinityToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modeInfinityToolStripMenuItem.Text = "Mode Infinity";
-            this.modeInfinityToolStripMenuItem.Click += new System.EventHandler(this.modeInfinityToolStripMenuItem_Click);
             // 
             // CB
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 367);
             this.Controls.Add(this.EspaceJeu);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "CB";
-            this.Text = "Casse brique";
             this.Load += new System.EventHandler(this.CB_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

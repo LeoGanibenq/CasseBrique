@@ -12,7 +12,7 @@ namespace CasseBriques {
 		private int nbTypeBrique = 4;
 
 		//						 [nbLvl, nbTypeBrique]
-		public int[][] levels = new int[100][];
+		public int[][] levels = new int[2147483646][];
 		
 		public void construit(int lvl, String modeType) {
 			lvl--;
