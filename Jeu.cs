@@ -3,7 +3,9 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Media;  
+using System.Media;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace CasseBriques 
 {
@@ -35,9 +37,9 @@ namespace CasseBriques
 		private Boule boule;
 		private Mur mur;
 
-		private List<int> effectToRmv = new List<int>();
+		private List<int> effectToRmv; 
 
-		private List<Effects> effects = new List<Effects>();
+		private List<Effects> effects;
 
 		public Jeu() {
 
@@ -62,6 +64,10 @@ namespace CasseBriques
 			// Première phase du jeu
 			phase=ATTEND;
 
+			effectToRmv = new List<int>();
+
+			effects = new List<Effects>();
+
 			// Lancement (si besoin) de l'exécution du jeu dans un thread
 			if (action==null){
 				action = new Timer();
@@ -85,6 +91,7 @@ namespace CasseBriques
 					case ATTEND:
 						// Placement de la boule au milieu de la barre
 						boule.place(barre.getX(), barre.getY() - boule.getRayon());
+						
 						break;
 
 					// La boule roule
@@ -280,6 +287,7 @@ namespace CasseBriques
 
 					case SORT:
 						action.Stop();
+
 						MessageBox.Show(this, "C'est perdu !", "Casse briques", MessageBoxButtons.OK);
 						fini = true;
 						String modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
@@ -294,6 +302,21 @@ namespace CasseBriques
 							modeType = "lvl";
                         }
 
+						string json = File.ReadAllText("config.json");
+						JObject config = JObject.Parse(json);
+
+						int record = (int)config["niveauMaxReussi"];
+
+						int level = int.Parse(CB.ActiveForm.Text.Split(':')[1])-1;//-1 car le niveau actuel a échoué
+						if(level > record)
+						{
+							MessageBox.Show("Bravo, vous avez battu votre record qui passe de "+record.ToString()+" à "+level.ToString(), "Record");
+
+							config["niveauMaxReussi"] = level;
+							string outputJson = config.ToString();
+							File.WriteAllText("config.json", outputJson);
+						}
+
 						initialiseNiveau(1, modeType);
 						break;
 
@@ -301,7 +324,7 @@ namespace CasseBriques
 						action.Stop();
 						
 						fini = true;
-						int level = int.Parse(CB.ActiveForm.Text.Split(':')[1])+1;
+						level = int.Parse(CB.ActiveForm.Text.Split(':')[1])+1;
 
 						modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
 						if (modeType == "Infinity")
@@ -318,7 +341,8 @@ namespace CasseBriques
 							CB.ActiveForm.Text = "Casse briques - Lvl:" + level;
 							if (level < 6)
 							{
-								MessageBox.Show(this, "Bravo, vous avez gagné ! Passage au lvl: " + level, "Casse briques", MessageBoxButtons.OK);
+								MessageBox.Show(this, "Bravo, vous avez gagné ! Passage au lvl: " + level +". Go to lvl 5", "Casse briques", MessageBoxButtons.OK);
+
 								initialiseNiveau(level, "lvl");
 							}
 							else
@@ -333,8 +357,39 @@ namespace CasseBriques
 						else if(modeType == "inf")
                         {
 							CB.ActiveForm.Text = "Casse briques - Infinity:" + level;
-							MessageBox.Show(this, "Bravo, vous avez gagné ! Passage au lvl: " + level, "Casse briques", MessageBoxButtons.OK);
-							initialiseNiveau(level, "inf");
+							if (level <= mur.getLvlMax())
+							{
+								MessageBox.Show(this, "Bravo, vous avez gagné ! Passage au lvl: " + level + "en route pour l'inifni", "Casse briques", MessageBoxButtons.OK);
+								initialiseNiveau(level, "inf");
+							}
+							else
+                            {
+								MessageBox.Show(this, "Vous êtes allez tellement loin et tellement plus rapide que la propagation de l'espace  que vous avez atteint la limite de l'univers.");
+								CB.ActiveForm.Hide();
+								CB f = new CB();
+								f.Show();
+							}
+						}
+
+						json = File.ReadAllText("config.json");
+						config = JObject.Parse(json);
+
+						record = (int)config["niveauMaxReussi"];
+
+						level = int.Parse(CB.ActiveForm.Text.Split(':')[1]) - 1;//-1 car le niveau actuel a échoué
+						if (level > record)
+						{
+							MessageBox.Show("Bravo, vous avez battu votre record qui passe de " + record.ToString() + " à " + level.ToString(), "Record");
+
+							if(config["niveauMaxReussi"] == null)
+							{
+								MessageBox.Show("test", "test");
+							}
+								config["niveauMaxReussi"] = level;
+
+							// Convertir l'objet JObject modifié en une chaîne JSON
+							string outputJson = config.ToString();
+							File.WriteAllText("config.json", outputJson);
 						}
 						break;
 				}

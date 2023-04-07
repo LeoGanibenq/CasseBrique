@@ -10,10 +10,18 @@ namespace CasseBriques {
 		private int nbBriques;
 		private Brique[,] mur = new Brique[10, 20];
 		private int nbTypeBrique = 4;
+		public int lvlMax = 2000;
 
 		//						 [nbLvl, nbTypeBrique]
-		public int[][] levels = new int[2147483646][];
-		
+		//public int[][] levels = new int[268435448][];//int max =  2147483646*
+							//268 435 448<  <268 435 449// Pour 10GoRAM
+		public int[][] levels = new int[2000][];
+
+		public int getLvlMax()
+        {
+			return lvlMax;
+        }											  
+
 		public void construit(int lvl, String modeType) {
 			lvl--;
 	
