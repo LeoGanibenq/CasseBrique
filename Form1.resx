@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="levelToolStripMenuItem.Text" xml:space="preserve">
+    <value>Level 200M</value>
+  </data>
+  <data name="&gt;&gt;jeuToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -127,6 +133,9 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="publierRecordToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
+  </data>
+  <data name="EspaceJeu.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1, 26</value>
   </data>
   <data name="&gt;&gt;quitterToolStripMenuItem.Name" xml:space="preserve">
     <value>quitterToolStripMenuItem</value>
@@ -154,6 +163,9 @@
   </data>
   <data name="EspaceJeu.Size" type="System.Drawing.Size, System.Drawing">
     <value>360, 340</value>
+  </data>
+  <data name="&gt;&gt;modeInfinityToolStripMenuItem.Name" xml:space="preserve">
+    <value>modeInfinityToolStripMenuItem</value>
   </data>
   <data name="quitterToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>149, 22</value>
@@ -197,9 +209,6 @@
   <data name="&gt;&gt;toolStripComboBox1.Name" xml:space="preserve">
     <value>toolStripComboBox1</value>
   </data>
-  <data name="&gt;&gt;bhToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;pseudoToolStripMenuItem.Name" xml:space="preserve">
     <value>pseudoToolStripMenuItem</value>
   </data>
@@ -212,11 +221,11 @@
   <data name="quitterToolStripMenuItem.Text" xml:space="preserve">
     <value>&amp;Quitter</value>
   </data>
-  <data name="EspaceJeu.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1, 26</value>
+  <data name="&gt;&gt;pseudoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;modeInfinityToolStripMenuItem.Name" xml:space="preserve">
-    <value>modeInfinityToolStripMenuItem</value>
+  <data name="publierRecordToolStripMenuItem.Text" xml:space="preserve">
+    <value>Publier record</value>
   </data>
   <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -233,8 +242,8 @@
   <data name="&gt;&gt;toolStripComboBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pseudoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="modeInfinityToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>149, 22</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -245,8 +254,8 @@
   <data name="nouveauToolStripMenuItem.Text" xml:space="preserve">
     <value>Mode Niveau</value>
   </data>
-  <data name="modeInfinityToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>149, 22</value>
+  <data name="&gt;&gt;bhToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;hToolStripMenuItem.Name" xml:space="preserve">
     <value>hToolStripMenuItem</value>
@@ -272,8 +281,8 @@
   <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 20</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
-    <value>toolStripMenuItem2</value>
+  <data name="pseudoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pseudo</value>
   </data>
   <data name="&gt;&gt;nouveauToolStripMenuItem.Name" xml:space="preserve">
     <value>nouveauToolStripMenuItem</value>
@@ -308,28 +317,19 @@
   <data name="modeInfinityToolStripMenuItem.Text" xml:space="preserve">
     <value>Mode Infinity</value>
   </data>
-  <data name="&gt;&gt;jeuToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
   </data>
   <data name="pseudoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>
   </data>
-  <data name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing">
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </data>
-  <data name="$this.Language" type="System.Globalization.CultureInfo, mscorlib">
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>fr</value>
-  </data>
-  <data name="$this.Localizable" type="System.Boolean, mscorlib">
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
-  </data>
-  <data name="levelToolStripMenuItem.Text" xml:space="preserve">
-    <value>Level 200M</value>
-  </data>
-  <data name="pseudoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Pseudo</value>
-  </data>
-  <data name="publierRecordToolStripMenuItem.Text" xml:space="preserve">
-    <value>Publier record</value>
-  </data>
+  </metadata>
 </root>

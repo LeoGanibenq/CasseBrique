@@ -38,15 +38,16 @@ namespace CasseBriques
 		private Mur mur;
 
 		private List<int> effectToRmv; 
-
 		private List<Effects> effects;
+		
+		bool cheatEnabled = false;
 
 		public Jeu() {
 
 			// Création de la barre
 			barre=new Barre();
 			// Création de la boule
-			boule=new Boule();
+			boule=new Boule();			
 		}
 
 		public void initialiseNiveau(int lvl, String modeType) {
@@ -81,7 +82,11 @@ namespace CasseBriques
 		void CaRoule(Object sender, EventArgs e) {
 
 			//CHEAT
-			barre.setX(boule.getX());
+			if(getCheatEnabled())
+			{
+				barre.setX(boule.getX());
+			}
+
 			bool fini = false;
 			int cpt = 0;
 			while (cpt<delai && fini == false) {
@@ -291,9 +296,8 @@ namespace CasseBriques
 						MessageBox.Show(this, "C'est perdu !", "Casse briques", MessageBoxButtons.OK);
 						fini = true;
 						String modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
-						MessageBox.Show(this, modeType);
 
-						if(modeType=="Infinity")
+						if (modeType=="Infinity")
                         {
 							modeType = "inf";
                         }
@@ -495,13 +499,34 @@ namespace CasseBriques
 				barre.setX(this.Width - barre.getMiLargeur());
 			else
 				// barre centrée sur le pointeur
-				//barre.setX(evt.X);
-				barre.setX(boule.getX());
+				barre.setX(evt.X);
+				//barre.setX(boule.getX());
 		}
 
 		public void EspaceJeu_MouseClick(object sender, MouseEventArgs e) {
 			lanceBoule(new Random().Next(120)+30);
 		}
 
+		public bool getCheatEnabled()
+        {
+			return cheatEnabled;
+        }
+
+		public void setCheat(bool value)
+        {
+			cheatEnabled = value;
+        }
+
+		public void EspaceJeu_MouseDClick(object sender, MouseEventArgs e)
+        {
+			if(getCheatEnabled())
+            {
+				setCheat(false);
+            }
+			else
+            {
+				setCheat(true);
+            }
+        }
 	}
 }

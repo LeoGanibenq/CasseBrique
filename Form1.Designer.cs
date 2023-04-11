@@ -28,7 +28,6 @@
             this.jeuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nouveauToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modeInfinityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.levelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.publierRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pseudoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,16 +64,8 @@
             // modeInfinityToolStripMenuItem
             // 
             resources.ApplyResources(this.modeInfinityToolStripMenuItem, "modeInfinityToolStripMenuItem");
-            this.modeInfinityToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.levelToolStripMenuItem});
             this.modeInfinityToolStripMenuItem.Name = "modeInfinityToolStripMenuItem";
             this.modeInfinityToolStripMenuItem.Click += new System.EventHandler(this.modeInfinityToolStripMenuItem_Click);
-            // 
-            // levelToolStripMenuItem
-            // 
-            resources.ApplyResources(this.levelToolStripMenuItem, "levelToolStripMenuItem");
-            this.levelToolStripMenuItem.Name = "levelToolStripMenuItem";
-            this.levelToolStripMenuItem.Click += new System.EventHandler(this.levelToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -104,6 +95,7 @@
             resources.ApplyResources(this.EspaceJeu, "EspaceJeu");
             this.EspaceJeu.Name = "EspaceJeu";
             this.EspaceJeu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseClick);
+            this.EspaceJeu.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseDoubleClick);
             this.EspaceJeu.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseMove);
             // 
             // CB
@@ -132,7 +124,6 @@
 		private System.Windows.Forms.ToolStripMenuItem quitterToolStripMenuItem;
 		private Jeu EspaceJeu;
         private System.Windows.Forms.ToolStripMenuItem modeInfinityToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem levelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem publierRecordToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pseudoToolStripMenuItem;
     }

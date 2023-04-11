@@ -183,8 +183,19 @@ namespace CasseBriques {
                 config["pseudo"] = userInput;
                 File.WriteAllText("config.json", config.ToString());
 
-                MessageBox.Show("Pseudo Modifié avec succès", "Changement pseudo");
+                MessageBox.Show("Pseudo modifié avec succès", "Changement pseudo");
             }
+        }
+
+        private void EspaceJeu_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EspaceJeu.EspaceJeu_MouseDClick(sender, e);
+            MessageBox.Show("cheat");
+        }
+
+        private void EspaceJeu_MouseDoubleClick(object sender, EventArgs e)
+        {
+
         }
     }
 }
