@@ -16,7 +16,8 @@ namespace CasseBriques {
         }
 
         private void nouveauToolStripMenuItem_Click(object sender, EventArgs e) {
-			int level = 1;
+            this.Width += 70;
+            int level = 1;
 			EspaceJeu.initialiseNiveau(level, "lvl");
 			this.Text = "CassesBriques - Lvl:"+level;
             this.Activated += onResume;
@@ -191,11 +192,6 @@ namespace CasseBriques {
         {
             EspaceJeu.EspaceJeu_MouseDClick(sender, e);
             MessageBox.Show("cheat");
-        }
-
-        private void EspaceJeu_MouseDoubleClick(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -39,3 +39,4 @@ C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\System.Memory.xml
 C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\GANIBENQ\source\repos\CasseBrique\bin\Debug\icon.ico

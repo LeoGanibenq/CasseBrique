@@ -120,9 +120,6 @@
   <data name="levelToolStripMenuItem.Text" xml:space="preserve">
     <value>Level 200M</value>
   </data>
-  <data name="&gt;&gt;jeuToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -281,6 +278,9 @@
   <data name="configurationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>93, 20</value>
   </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
+  </data>
   <data name="pseudoToolStripMenuItem.Text" xml:space="preserve">
     <value>Pseudo</value>
   </data>
@@ -317,8 +317,8 @@
   <data name="modeInfinityToolStripMenuItem.Text" xml:space="preserve">
     <value>Mode Infinity</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
-    <value>toolStripMenuItem2</value>
+  <data name="&gt;&gt;jeuToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="pseudoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>180, 22</value>

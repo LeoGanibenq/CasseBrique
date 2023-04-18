@@ -9,7 +9,7 @@ using System.IO;
 
 namespace CasseBriques 
 {
-	 public class Jeu : Panel 
+	 public class Jeu : Panel
 	 {
 		// Delai entre 2 déplacements
 		private const int COOL = 2;
@@ -47,7 +47,9 @@ namespace CasseBriques
 			// Création de la barre
 			barre=new Barre();
 			// Création de la boule
-			boule=new Boule();			
+			boule=new Boule();
+
+			this.ClientSize = new Size(this.ClientSize.Width + 50, this.ClientSize.Height);
 		}
 
 		public void initialiseNiveau(int lvl, String modeType) {
@@ -463,12 +465,28 @@ namespace CasseBriques
 		}
 
 		void Dessiner() {
-            BufferedGraphics B = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(0, 0, this.Width, this.Height));
-            Graphics ZoneJeu = B.Graphics;
+			Point HG = new Point(0, 0);
+			Point HD = new Point(this.Width, 0); 
+			Point BG = new Point(0, this.Height); 
+			Point BD = new Point(this.Width, this.Height);
+
+			Size sizeB = new Size(this.Width, this.Height);
+			Size sizeB2 = new Size(this.Width+70, this.Height);
+
+			BufferedGraphics B = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(HG, sizeB));
+			BufferedGraphics B2 = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(HD, sizeB2));
+
+			Graphics ZoneJeu = B.Graphics;
+			Graphics ZoneScore = B2.Graphics;
+
             // Effacement de l'espace de jeu
-            ZoneJeu.FillRectangle(new SolidBrush(this.BackColor), 0, 0, this.Width, this.Height);
-            // Dessin de la barre
-            barre.dessine(ZoneJeu);
+            ZoneJeu.FillRectangle(new SolidBrush(Color.Transparent), new Rectangle(HG, sizeB));
+			ZoneScore.FillRectangle(new SolidBrush(Color.Red), new Rectangle(HD, sizeB2));
+			
+
+			// Dessin de la barre
+			barre.dessine(ZoneJeu);
+
             // Dessin de la boule
             boule.dessine(ZoneJeu);
 
@@ -483,8 +501,13 @@ namespace CasseBriques
                 mur.dessine(ZoneJeu);
 
             B.Render();
+			B2.Render();
+
             ZoneJeu.Dispose();
+			ZoneScore.Dispose();
+
             B.Dispose();
+			B2.Dispose();
 		}
 
 		public void EspaceJeu_MouseMove(object sender, MouseEventArgs evt) {

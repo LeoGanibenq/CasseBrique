@@ -148,7 +148,9 @@
   <ItemGroup>
     <Content Include="arrowH.png" />
     <Content Include="baseBrique.png" />
-    <Content Include="icon.ico" />
+    <Content Include="icon.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="retourBrique.png" />
     <Content Include="speedBrique.png" />
     <Content Include="speedEffect.png" />

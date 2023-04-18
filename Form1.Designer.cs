@@ -93,6 +93,7 @@
             // EspaceJeu
             // 
             resources.ApplyResources(this.EspaceJeu, "EspaceJeu");
+            this.EspaceJeu.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.EspaceJeu.Name = "EspaceJeu";
             this.EspaceJeu.MouseClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseClick);
             this.EspaceJeu.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.EspaceJeu_MouseDoubleClick);
