@@ -12,11 +12,10 @@ namespace CasseBriques {
 
         public CB() {
 			InitializeComponent();
-            this.Icon = new System.Drawing.Icon("C:/Users/GANIBENQ/source/repos/CasseBrique/icon.ico");
+            this.Icon = new System.Drawing.Icon("icon.ico");
         }
 
         private void nouveauToolStripMenuItem_Click(object sender, EventArgs e) {
-            this.Width += 70;
             int level = 1;
 			EspaceJeu.initialiseNiveau(level, "lvl");
 			this.Text = "CassesBriques - Lvl:"+level;
@@ -50,6 +49,11 @@ namespace CasseBriques {
         {
             int level = 1;
             EspaceJeu.initialiseNiveau(level, "inf");
+
+            string jsonStr = File.ReadAllText("config.json");
+            JObject config = JObject.Parse(jsonStr);
+            int points = (int) config["points"];
+
             this.Text = "CassesBriques - Infinity: " + level;
         }
 

@@ -28,7 +28,7 @@ namespace CasseBriques {
 			}
 			catch(Exception e)
             {
-				MessageBox.Show("Error", e.Message);
+				MessageBox.Show(e.Message+"\n"+e.StackTrace, "Error");
             }
 		}
 	}

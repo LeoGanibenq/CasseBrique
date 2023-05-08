@@ -4,6 +4,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace CasseBriques {
 	class Mur {
@@ -116,6 +117,14 @@ namespace CasseBriques {
 		}
 
 		public int casse(int l, int c) {
+			string jsonStr = File.ReadAllText("config.json");
+			JObject config = JObject.Parse(jsonStr);
+			int pts = (int) config["points"];
+			Random rand = new Random();
+			pts += rand.Next(1, 6);
+			config["points"] = pts;
+			File.WriteAllText("config.json", config.ToString());
+
 			int consequence=0;
 			// Si les coordonnées sont dans le mur (pas de coordonnées hors tableau)
 			if (l>=0 && l <10 && c>=0 && c<20) {

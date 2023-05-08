@@ -48,8 +48,6 @@ namespace CasseBriques
 			barre=new Barre();
 			// Création de la boule
 			boule=new Boule();
-
-			this.ClientSize = new Size(this.ClientSize.Width + 50, this.ClientSize.Height);
 		}
 
 		public void initialiseNiveau(int lvl, String modeType) {
@@ -80,11 +78,25 @@ namespace CasseBriques
 			action.Start();
 		}
 
+		public int getPoints()
+        {
+			string jsonStr = File.ReadAllText("config.json");
+			JObject config = JObject.Parse(jsonStr);
+			int pts = (int)config["points"];
+
+			return pts;
+        }
+
+		public void addPoints()
+        {
+
+        }
+
 		// Traitement central exécuté avec une périodicité précise
 		void CaRoule(Object sender, EventArgs e) {
 
 			//CHEAT
-			if(getCheatEnabled())
+			if (getCheatEnabled())
 			{
 				barre.setX(boule.getX());
 			}
@@ -98,25 +110,26 @@ namespace CasseBriques
 					case ATTEND:
 						// Placement de la boule au milieu de la barre
 						boule.place(barre.getX(), barre.getY() - boule.getRayon());
-						
+
 						break;
 
 					// La boule roule
 					case ROULE:
+						String modeType;
 						// Déplacement de la boule
 						boule.deplace();
 						Random r = new Random();
 						int choixColor = r.Next(1, 100);
-						if(0 < choixColor && choixColor < 30)
-                        {
+						if (0 < choixColor && choixColor < 30)
+						{
 							boule.newColor();
-                        }
-						
-						foreach(Effects effect in effects)
-                        {
+						}
+
+						foreach (Effects effect in effects)
+						{
 							effect.deplace();
-                        }
-						
+						}
+
 						// Rebond sur le bord gauche ?
 						if (boule.getX() < boule.getRayon()) {
 							boule.chocH();
@@ -157,13 +170,13 @@ namespace CasseBriques
 							}
 						}
 
-						foreach(Effects effect in effects)
+						foreach (Effects effect in effects)
 						{
-							if(effect.getY() > 310 - effect.getRayon())
+							if (effect.getY() > 310 - effect.getRayon())
 							{
-								if((effect.getX() - effect.getRayon() < barre.getX() + barre.getMiLargeur())
+								if ((effect.getX() - effect.getRayon() < barre.getX() + barre.getMiLargeur())
 									&&
-									(effect.getX() + effect.getRayon() > barre.getX() - barre.getMiLargeur())) 
+									(effect.getX() + effect.getRayon() > barre.getX() - barre.getMiLargeur()))
 								{
 									animEffect(effect.getTypeE());
 
@@ -180,17 +193,17 @@ namespace CasseBriques
 							}
 						}
 
-						for(int i = 0; i < effectToRmv.Count; i++)
-                        {
+						for (int i = 0; i < effectToRmv.Count; i++)
+						{
 							try
-                            {
+							{
 								effects.RemoveAt(i);
 							}
-							catch(Exception ex)
-                            {
+							catch (Exception ex)
+							{
 								Console.WriteLine("objet inexistant");
-                            }
-                        }
+							}
+						}
 
 						effectToRmv = new List<int>();
 
@@ -275,14 +288,14 @@ namespace CasseBriques
 							modifJeu(mur.casse(l2, c1), l1, l2, c1, c2);
 							modifJeu(mur.casse(l2, c2), l1, l2, c1, c2);
 
-							foreach(Effects effect in effects)
-                            {
+							foreach (Effects effect in effects)
+							{
 								if (effect.isPlaced == false)
 								{
 									effect.place(mur.getX(l1, c1), mur.getY(l1, c1));
 									effect.isPlaced = true;
 								}
-                            }
+							}
 
 							// Si toutes les briques sont cassées ...
 							if (mur.getNbBriques() == 0) {
@@ -295,41 +308,69 @@ namespace CasseBriques
 					case SORT:
 						action.Stop();
 
-						MessageBox.Show(this, "C'est perdu !", "Casse briques", MessageBoxButtons.OK);
-						fini = true;
-						String modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
+						int record;
+						int level;
 
-						if (modeType=="Infinity")
-                        {
-							modeType = "inf";
-                        }
-						else if(modeType=="Lvl")
-                        {
-							modeType = "lvl";
-                        }
+						int pts = getPoints();
 
-						string json = File.ReadAllText("config.json");
-						JObject config = JObject.Parse(json);
-
-						int record = (int)config["niveauMaxReussi"];
-
-						int level = int.Parse(CB.ActiveForm.Text.Split(':')[1])-1;//-1 car le niveau actuel a échoué
-						if(level > record)
+						DialogResult continuer = (DialogResult)MessageBox.Show(this, "C'est perdu ! Voulez vous continuer pour 3000pts?", "Casse briques - " + pts + " pts", MessageBoxButtons.YesNo);
+						if (continuer == DialogResult.Yes)
 						{
-							MessageBox.Show("Bravo, vous avez battu votre record qui passe de "+record.ToString()+" à "+level.ToString(), "Record");
+							if(pts>= 3000)
+                            {
+								pts -= 3000;
+								config["points"] = pts;
+								File.WriteAllText("config.json", config.ToString());
 
-							config["niveauMaxReussi"] = level;
-							string outputJson = config.ToString();
-							File.WriteAllText("config.json", outputJson);
+								MessageBox.Show("C'est reparti");
+
+								level = int.Parse(CB.ActiveForm.Text.Split(':')[1]);
+								modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
+
+								initialiseNiveau(level, modeType);
+							}
+							else
+                            {
+								MessageBox.Show("Tu n'as pas assez de points. Tu peut en avoir en détruisant des briques.", "Erreur achat", MessageBoxButtons.OK);
+								modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
+								initialiseNiveau(1, modeType);
+							}
 						}
+						else
+						{
+							fini = true;
+							modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
 
-						initialiseNiveau(1, modeType);
+							if (modeType == "Infinity")
+							{
+								modeType = "inf";
+							}
+							else if (modeType == "Lvl")
+							{
+								modeType = "lvl";
+							}
+
+							record = (int)config["niveauMaxReussi"];
+
+							level = int.Parse(CB.ActiveForm.Text.Split(':')[1]) - 1;//-1 car le niveau actuel a échoué
+							if (level > record)
+							{
+								MessageBox.Show("Bravo, vous avez battu votre record qui passe de " + record.ToString() + " à " + level.ToString(), "Record");
+
+								config["niveauMaxReussi"] = level;
+								string outputJson = config.ToString();
+								File.WriteAllText("config.json", outputJson);
+							}
+
+							initialiseNiveau(1, modeType);
+						}
 						break;
 
 					case GAGNE:
 						action.Stop();
 						
 						fini = true;
+						MessageBox.Show(CB.ActiveForm.Text);
 						level = int.Parse(CB.ActiveForm.Text.Split(':')[1])+1;
 
 						modeType = CB.ActiveForm.Text.Split('-')[1].Split(' ')[1].Split(':')[0];
@@ -377,7 +418,7 @@ namespace CasseBriques
 							}
 						}
 
-						json = File.ReadAllText("config.json");
+						String json = File.ReadAllText("config.json");
 						config = JObject.Parse(json);
 
 						record = (int)config["niveauMaxReussi"];
@@ -471,17 +512,13 @@ namespace CasseBriques
 			Point BD = new Point(this.Width, this.Height);
 
 			Size sizeB = new Size(this.Width, this.Height);
-			Size sizeB2 = new Size(this.Width+70, this.Height);
 
-			BufferedGraphics B = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(HG, sizeB));
-			BufferedGraphics B2 = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(HD, sizeB2));
+			BufferedGraphics B = BufferedGraphicsManager.Current.Allocate(this.CreateGraphics(), new Rectangle(0, 0, this.Width, this.Height));
 
 			Graphics ZoneJeu = B.Graphics;
-			Graphics ZoneScore = B2.Graphics;
 
             // Effacement de l'espace de jeu
-            ZoneJeu.FillRectangle(new SolidBrush(Color.Transparent), new Rectangle(HG, sizeB));
-			ZoneScore.FillRectangle(new SolidBrush(Color.Red), new Rectangle(HD, sizeB2));
+            ZoneJeu.FillRectangle(new SolidBrush(Color.White), new Rectangle(HG, sizeB));
 			
 
 			// Dessin de la barre
@@ -501,13 +538,10 @@ namespace CasseBriques
                 mur.dessine(ZoneJeu);
 
             B.Render();
-			B2.Render();
 
             ZoneJeu.Dispose();
-			ZoneScore.Dispose();
 
             B.Dispose();
-			B2.Dispose();
 		}
 
 		public void EspaceJeu_MouseMove(object sender, MouseEventArgs evt) {
